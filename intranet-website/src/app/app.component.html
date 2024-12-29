@@ -181,8 +181,8 @@
   <div class="content">
       <h1>Server Information</h1>
       <div *ngIf="health; else loading">
-        <h2>{{health?.host_name}}</h2>
-        <h3>({{health?.used_mem_as_pct | number:'1.2-2' }}% Used)</h3>
+        <h2>Host: {{health?.host_name}}</h2>
+        <h3>Memory Usage: ({{health?.used_mem_as_pct | number:'1.2-2' }}% Used)</h3>
         <p>{{health?.used_mem | number}} of {{health?.total_mem | number}} bytes</p>
       </div>
       <ng-template #loading>
