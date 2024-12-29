@@ -9,7 +9,7 @@ echo "✓"
 print -n "Building site..."
 pushd intranet-website > /dev/null || { echo "Directory not found!"; exit 1; }
 npm install
-ng build --configuration production > /dev/null 2>&1
+ng build --configuration development
 popd > /dev/null
 echo "✓"
 

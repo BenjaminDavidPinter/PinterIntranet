@@ -8,14 +8,16 @@ struct PiHealth {
     host_name: String,
     used_mem: u64,
     total_mem: u64,
+    used_mem_as_pct: f64,
 }
 
 impl PiHealth {
-    pub fn new(host_name: String, used_mem: u64, total_mem: u64) -> PiHealth {
+    pub fn new(host_name: String, used_mem: u64, total_mem: u64, used_mem_as_pct: f64) -> PiHealth {
         PiHealth {
             host_name,
             used_mem,
             total_mem,
+            used_mem_as_pct,
         }
     }
 }
@@ -28,6 +30,7 @@ pub async fn get_pi_health() -> HttpResponse {
         gethostname().into_string().unwrap(),
         system_info.used_memory(),
         system_info.total_memory(),
+        (system_info.used_memory() as f64) / (system_info.total_memory() as f64) * 100.0,
     );
     HttpResponse::Ok().json(server_info)
 }

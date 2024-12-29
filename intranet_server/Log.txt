@@ -1,0 +1,26 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running `target/debug/intranet_server`
+Starting server on Benjamins-MacBook-Air.local:12000
+[2024-12-29T04:44:59Z INFO  actix_server::builder] starting 8 workers
+[2024-12-29T04:44:59Z INFO  actix_server::server] Actix runtime found; starting in Actix runtime
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-[::1]:12000", workers: 8, listening on: [::1]:12000
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-[fe80::1%1]:12000", workers: 8, listening on: [fe80::1%1]:12000
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-127.0.0.1:12000", workers: 8, listening on: 127.0.0.1:12000
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-192.168.0.164:12000", workers: 8, listening on: 192.168.0.164:12000
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-[fe80::88d:52eb:e92:264f%11]:12000", workers: 8, listening on: [fe80::88d:52eb:e92:264f%11]:12000
+[2024-12-29T04:44:59Z INFO  actix_server::server] starting service: "actix-web-service-[fd8b:d65c:cb1a:3661:a8:aa90:f1f:e608]:12000", workers: 8, listening on: [fd8b:d65c:cb1a:3661:a8:aa90:f1f:e608]:12000
+[2024-12-29T04:45:03Z INFO  actix_web::middleware::logger] ::1 "GET / HTTP/1.1" 200 488 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15" 0.002063
+[2024-12-29T04:45:03Z INFO  actix_web::middleware::logger] ::1 "GET /styles-5INURTSO.css HTTP/1.1" 200 0 "http://benjamins-macbook-air.local:12000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15" 0.000572
+[2024-12-29T04:45:03Z INFO  actix_web::middleware::logger] ::1 "GET /polyfills-FFHMD2TL.js HTTP/1.1" 200 34519 "http://benjamins-macbook-air.local:12000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15" 0.002905
+[2024-12-29T04:45:03Z INFO  actix_web::middleware::logger] ::1 "GET /main-YHQTIWTE.js HTTP/1.1" 200 206817 "http://benjamins-macbook-air.local:12000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15" 0.002952
+[2024-12-29T04:45:11Z INFO  actix_web::middleware::logger] ::1 "GET /api/health HTTP/1.1" 404 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.2 Safari/605.1.15" 0.000270
+[2024-12-29T04:45:13Z INFO  actix_server::server] SIGINT received; starting forced shutdown
+[2024-12-29T04:45:13Z INFO  actix_server::accept] accept thread stopped
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] force shutdown worker, closing 1 connections
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
+[2024-12-29T04:45:13Z INFO  actix_server::worker] shutting down idle worker
