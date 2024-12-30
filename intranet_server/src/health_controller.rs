@@ -33,8 +33,15 @@ impl SystemHealth {
 #[get("/health")]
 pub async fn get_pi_health() -> HttpResponse {
     println!("Getting server health");
-    let system_info = System::new_all();
+    let mut system_info = System::new_all();
+
     let mut cpus: Vec<f32> = Vec::new();
+
+    //In order for sysinfo to take accurate
+    //usage measurements, we have to call this
+    //function again
+    std::thread::sleep(sysinfo::MINIMUM_CPU_UPDATE_INTERVAL);
+    system_info.refresh_cpu_usage();
 
     for cpu in system_info.cpus() {
         cpus.push(cpu.cpu_usage());
