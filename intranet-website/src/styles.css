@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --light-blue: #d0e8ff; /* Light blue */
+  --pink: #ffcce7;       /* Soft pink */
+  --dark-blue: #003366; /* Dark blue for text */
+  --white: #ffffff;      /* White background */
+  --gray: #888;          /* Neutral gray for secondary text */
+}
+

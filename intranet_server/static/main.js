@@ -45260,20 +45260,22 @@ var ApiService = class _ApiService {
 };
 
 // src/app/app.component.ts
-function AppComponent_div_18_Template(rf, ctx) {
+function AppComponent_div_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 6)(1, "div", 7)(2, "span", 8);
+    \u0275\u0275elementStart(0, "div", 13)(1, "p")(2, "strong");
     \u0275\u0275text(3);
-    \u0275\u0275pipe(4, "number");
-    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementEnd();
+    \u0275\u0275text(4);
+    \u0275\u0275pipe(5, "number");
+    \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     const usage_r1 = ctx.$implicit;
     const i_r2 = ctx.index;
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate1("CPU[", i_r2, "]:");
     \u0275\u0275advance();
-    \u0275\u0275styleProp("width", usage_r1, "%");
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate2(" CPU[", i_r2, "]: ", \u0275\u0275pipeBind2(4, 4, usage_r1, "1.0-2"), "% ");
+    \u0275\u0275textInterpolate1(" ", \u0275\u0275pipeBind2(5, 2, usage_r1, "1.0-2"), "%");
   }
 }
 var AppComponent = class _AppComponent {
@@ -45292,42 +45294,49 @@ var AppComponent = class _AppComponent {
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)(\u0275\u0275directiveInject(ApiService));
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 22, vars: 8, consts: [[1, "main"], [1, "card-container"], [1, "example-card"], [1, "example-card-title"], [1, "example-card-subtitle"], [1, "example-card-content"], [1, "progress-bar-container"], [1, "progress-bar"], [1, "progress-bar-label"], [1, "cpu-usage-container"], ["class", "progress-bar-container", 4, "ngFor", "ngForOf"], [1, "example-card-footer"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 10, consts: [[1, "main"], [1, "card-container"], [1, "info-card"], [1, "info-card-title"], [1, "info-card-subtitle"], [1, "info-card-content"], [1, "stats-grid"], [1, "stat-item"], [1, "stat-label"], [1, "stat-value"], [1, "cpu-grid"], ["class", "cpu-item", 4, "ngFor", "ngForOf"], [1, "info-card-footer"], [1, "cpu-item"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 0)(1, "div", 1)(2, "mat-card", 2)(3, "div", 3);
       \u0275\u0275text(4, "Server Health");
       \u0275\u0275elementEnd();
       \u0275\u0275elementStart(5, "div", 4);
-      \u0275\u0275text(6);
-      \u0275\u0275pipe(7, "date");
+      \u0275\u0275text(6, "Usage Statistics");
       \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(8, "mat-card-content", 5)(9, "p")(10, "strong");
-      \u0275\u0275text(11, "Host Name:");
+      \u0275\u0275elementStart(7, "mat-card-content", 5)(8, "div", 6)(9, "div", 7)(10, "p", 8);
+      \u0275\u0275text(11, "Host Name");
       \u0275\u0275elementEnd();
-      \u0275\u0275text(12);
-      \u0275\u0275elementEnd();
-      \u0275\u0275elementStart(13, "div", 6)(14, "div", 7)(15, "span", 8);
-      \u0275\u0275text(16, " RAM ");
-      \u0275\u0275elementEnd()()();
-      \u0275\u0275elementStart(17, "div", 9);
-      \u0275\u0275template(18, AppComponent_div_18_Template, 5, 7, "div", 10);
+      \u0275\u0275elementStart(12, "p", 9);
+      \u0275\u0275text(13);
       \u0275\u0275elementEnd()();
-      \u0275\u0275elementStart(19, "mat-card-footer");
-      \u0275\u0275element(20, "div", 11);
+      \u0275\u0275elementStart(14, "div", 7)(15, "p", 8);
+      \u0275\u0275text(16, "RAM Usage");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(17, "p", 9);
+      \u0275\u0275text(18);
+      \u0275\u0275pipe(19, "number");
+      \u0275\u0275elementEnd();
+      \u0275\u0275element(20, "p");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(21, "div", 10);
+      \u0275\u0275template(22, AppComponent_div_22_Template, 6, 5, "div", 11);
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(23, "mat-card-footer", 12);
+      \u0275\u0275text(24);
+      \u0275\u0275pipe(25, "date");
       \u0275\u0275elementEnd()()()();
-      \u0275\u0275element(21, "router-outlet");
+      \u0275\u0275element(26, "router-outlet");
     }
     if (rf & 2) {
-      \u0275\u0275advance(6);
-      \u0275\u0275textInterpolate1("Fetched: ", \u0275\u0275pipeBind2(7, 5, ctx.lastUpdated, "short"), "");
-      \u0275\u0275advance(6);
-      \u0275\u0275textInterpolate1(" ", ctx.health == null ? null : ctx.health.host_name, "");
-      \u0275\u0275advance(2);
-      \u0275\u0275styleProp("width", ctx.health == null ? null : ctx.health.used_mem_as_pct, "%");
+      \u0275\u0275advance(13);
+      \u0275\u0275textInterpolate(ctx.health == null ? null : ctx.health.host_name);
+      \u0275\u0275advance(5);
+      \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind2(19, 4, ctx.health == null ? null : ctx.health.used_mem_as_pct, "1.2-2"), "%");
       \u0275\u0275advance(4);
       \u0275\u0275property("ngForOf", ctx.health == null ? null : ctx.health.cpu_usages_as_pct);
+      \u0275\u0275advance(2);
+      \u0275\u0275textInterpolate1(" Fetched: ", \u0275\u0275pipeBind2(25, 7, ctx.lastUpdated, "short"), " ");
     }
-  }, dependencies: [CommonModule, NgForOf, DecimalPipe, DatePipe, RouterOutlet, HttpClientModule, MatCardModule, MatCard, MatCardContent, MatCardFooter], styles: ["\n\n.example-card[_ngcontent-%COMP%] {\n  margin: 8px auto;\n  max-width: 400px;\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n  border-radius: 8px;\n  background-color: #ffffff;\n  padding: 8px;\n  transition: transform 0.2s, box-shadow 0.2s;\n}\n.example-card[_ngcontent-%COMP%]:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);\n}\n.example-card-title[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: #333;\n  margin-bottom: 8px;\n}\n.example-card-subtitle[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  font-weight: normal;\n  color: #777;\n  margin-bottom: 16px;\n}\n.example-card-content[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  color: #555;\n  line-height: 1.5;\n  padding: 8px 0;\n  text-align: left;\n}\n.example-card-content[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 4px 0;\n}\n.example-card-footer[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #999;\n  text-align: right;\n  margin-top: 16px;\n  border-top: 1px solid #eee;\n  padding-top: 8px;\n}\nbody[_ngcontent-%COMP%] {\n  background-color: #f5f5f5;\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 0;\n}\n.card-container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 24px;\n  gap: 24px;\n}\n.example-card[_ngcontent-%COMP%] {\n  border-left: 4px solid #3f51b5;\n}\n.example-card-title[_ngcontent-%COMP%] {\n  color: #3f51b5;\n}\n.example-card-footer[_ngcontent-%COMP%] {\n  color: #666;\n}\n.progress-bar-container[_ngcontent-%COMP%] {\n  background-color: #e0e0e0;\n  border-radius: 8px;\n  height: 20px;\n  width: 100%;\n  position: relative;\n  margin: 0;\n  overflow: hidden;\n}\n.progress-bar[_ngcontent-%COMP%] {\n  background-color: #3f51b5;\n  height: 100%;\n  border-radius: 8px 0 0 8px;\n  transition: width 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-size: 0.875rem;\n  font-weight: bold;\n}\n.progress-bar-label[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  font-size: 0.875rem;\n  font-weight: bold;\n  color: grey;\n  pointer-events: none;\n}\n.cpu-usage-container[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+  }, dependencies: [CommonModule, NgForOf, DecimalPipe, DatePipe, RouterOutlet, HttpClientModule, MatCardModule, MatCard, MatCardContent, MatCardFooter], styles: ["\n\n.card-container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: var(--light-blue);\n}\n.info-card[_ngcontent-%COMP%] {\n  background-color: var(--white);\n  border-left: 8px solid var(--pink);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 16px;\n  margin: 0 auto;\n  width: 95%;\n  max-width: 480px;\n}\n.info-card-title[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: var(--dark-blue);\n  margin-bottom: 8px;\n  border-bottom: 2px solid var(--pink);\n  padding-bottom: 8px;\n}\n.info-card-subtitle[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  font-weight: normal;\n  color: var(--gray);\n  margin-bottom: 16px;\n}\n.info-card-content[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  color: var(--dark-blue);\n  line-height: 1.5;\n}\n.info-card-content[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 8px 0;\n}\n.cpu-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n  gap: 8px;\n  margin-top: 16px;\n}\n.cpu-item[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #555;\n  text-align: center;\n  padding: 4px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.info-card-footer[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--gray);\n  text-align: right;\n  border-top: 1px solid var(--pink);\n  padding-top: 8px;\n  margin-top: 16px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n  margin-top: 16px;\n}\n.stat-item[_ngcontent-%COMP%] {\n  background-color: #ffffff;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 12px;\n  text-align: center;\n}\n.stat-label[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #888;\n  margin-bottom: 4px;\n}\n.stat-value[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: #003366;\n}\n@media (min-width: 768px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 80%;\n  }\n}\n@media (min-width: 1024px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 60%;\n    max-width: 600px;\n  }\n  .card-container[_ngcontent-%COMP%] {\n    gap: 24px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent" });

@@ -1,41 +1,29 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <main class="main">
   <div class="card-container">
-    <mat-card class="example-card">
-      <div class="example-card-title">Server Health</div>
-      <div class="example-card-subtitle">Fetched: {{lastUpdated | date:'short'}}</div>
-      <mat-card-content class="example-card-content">
-        <p><strong>Host Name:</strong> {{health?.host_name}}</p>
-        <div class="progress-bar-container">
-          <div class="progress-bar" [style.width.%]="health?.used_mem_as_pct">
-            <span class="progress-bar-label">
-              RAM
-            </span>
+    <mat-card class="info-card">
+      <div class="info-card-title">Server Health</div>
+      <div class="info-card-subtitle">Usage Statistics</div>
+      <mat-card-content class="info-card-content">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <p class="stat-label">Host Name</p>
+            <p class="stat-value">{{health?.host_name}}</p>
+          </div>
+          <div class="stat-item">
+            <p class="stat-label">RAM Usage</p>
+            <p class="stat-value">{{health?.used_mem_as_pct | number:'1.2-2'}}%<p>
           </div>
         </div>
-        <div class="cpu-usage-container">
-          <div *ngFor="let usage of health?.cpu_usages_as_pct; let i = index" class="progress-bar-container">
-            <div
-              class="progress-bar"
-              [style.width.%]="usage"
-              >
-              <span class="progress-bar-label">
-              CPU[{{ i }}]: {{ usage | number:'1.0-2' }}%
-              </span>
-            </div>
+        <div class="cpu-grid">
+          <div
+            *ngFor="let usage of health?.cpu_usages_as_pct; let i = index"
+            class="cpu-item">
+            <p><strong>CPU[{{ i }}]:</strong> {{ usage | number:'1.0-2' }}%</p>
           </div>
-  </div>
+        </div>
       </mat-card-content>
-      <mat-card-footer>
-        <div class="example-card-footer"></div>
+      <mat-card-footer class="info-card-footer">
+        Fetched: {{lastUpdated | date:'short'}}
       </mat-card-footer>
     </mat-card>
   </div>
