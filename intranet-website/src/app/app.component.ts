@@ -5,18 +5,19 @@ import { HealthInfo } from '../models/health-info.model';
 import { ApiService } from './api.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule],
+  imports: [CommonModule, RouterOutlet, HttpClientModule, MatCardModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
   constructor(private apiService: ApiService){}
 
-  title = 'Pinter Family Website';
+  lastUpdated: Date = new Date();
   health: HealthInfo | null = null;
 
   ngOnInit(): void {

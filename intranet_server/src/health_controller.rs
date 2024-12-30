@@ -4,20 +4,28 @@ use serde::Serialize;
 use sysinfo::System;
 
 #[derive(Serialize)]
-struct PiHealth {
+struct SystemHealth {
     host_name: String,
     used_mem: u64,
     total_mem: u64,
     used_mem_as_pct: f64,
+    cpu_usages_as_pct: Vec<f32>,
 }
 
-impl PiHealth {
-    pub fn new(host_name: String, used_mem: u64, total_mem: u64, used_mem_as_pct: f64) -> PiHealth {
-        PiHealth {
+impl SystemHealth {
+    pub fn new(
+        host_name: String,
+        used_mem: u64,
+        total_mem: u64,
+        used_mem_as_pct: f64,
+        cpu_usages_as_pct: Vec<f32>,
+    ) -> SystemHealth {
+        SystemHealth {
             host_name,
             used_mem,
             total_mem,
             used_mem_as_pct,
+            cpu_usages_as_pct,
         }
     }
 }
@@ -26,11 +34,18 @@ impl PiHealth {
 pub async fn get_pi_health() -> HttpResponse {
     println!("Getting server health");
     let system_info = System::new_all();
-    let server_info = PiHealth::new(
+    let mut cpus: Vec<f32> = Vec::new();
+
+    for cpu in system_info.cpus() {
+        cpus.push(cpu.cpu_usage());
+    }
+
+    let server_info = SystemHealth::new(
         gethostname().into_string().unwrap(),
         system_info.used_memory(),
         system_info.total_memory(),
         (system_info.used_memory() as f64) / (system_info.total_memory() as f64) * 100.0,
+        cpus,
     );
     HttpResponse::Ok().json(server_info)
 }

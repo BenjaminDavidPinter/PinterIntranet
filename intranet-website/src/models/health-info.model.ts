@@ -2,5 +2,6 @@ export interface HealthInfo {
   host_name: string,
   used_mem: number,
   total_mem: number
-  used_mem_as_pct: number
+  used_mem_as_pct: number,
+  cpu_usages_as_pct: number[]
 }

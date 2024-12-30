@@ -1,0 +1,119 @@
+.example-card {
+  margin: 8px auto; /* Center the card horizontally */
+  max-width: 400px; /* Limit the card width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  border-radius: 8px; /* Rounded edges */
+  background-color: #ffffff; /* Clean white background */
+  padding: 8px; /* Inner spacing */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+.example-card:hover {
+  transform: translateY(-4px); /* Lift effect on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.example-card-title {
+  font-size: 1.5rem; /* Larger title */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px; /* Add spacing below title */
+}
+
+.example-card-subtitle {
+  font-size: 1rem; /* Smaller subtitle */
+  font-weight: normal;
+  color: #777; /* Subtle gray color */
+  margin-bottom: 16px; /* Add spacing below subtitle */
+}
+
+.example-card-content {
+  font-size: 1rem; /* Default font size for content */
+  color: #555;
+  line-height: 1.5; /* Improve readability */
+  padding: 8px 0; /* Reduce overall padding */
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.example-card-content p {
+  margin: 4px 0; /* Reduce spacing between paragraphs */
+}
+
+.example-card-footer {
+  font-size: 0.875rem; /* Smaller footer text */
+  color: #999;
+  text-align: right; /* Align footer to the right */
+  margin-top: 16px; /* Space above footer */
+  border-top: 1px solid #eee; /* Subtle separator */
+  padding-top: 8px;
+}
+
+body {
+  background-color: #f5f5f5; /* Light gray background */
+  font-family: Arial, sans-serif; /* Clean, readable font */
+  margin: 0;
+  padding: 0;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center; /* Center cards horizontally */
+  padding: 24px; /* Add padding around the container */
+  gap: 24px; /* Space between cards */
+}
+
+.example-card {
+  border-left: 4px solid #3f51b5; /* Add an accent border */
+}
+
+.example-card-title {
+  color: #3f51b5; /* Use the accent color for the title */
+}
+
+.example-card-footer {
+  color: #666; /* Slightly darker for readability */
+}
+
+.progress-bar-container {
+  background-color: #e0e0e0; /* Light gray background */
+  border-radius: 8px; /* Rounded edges for the container */
+  height: 20px; /* Height of the progress bar */
+  width: 100%; /* Full width of the container */
+  position: relative; /* Needed for positioning the label */
+  margin: 0;
+  overflow: hidden; /* Clip content that goes beyond the container */
+}
+
+.progress-bar {
+  background-color: #3f51b5; /* Blue progress bar color */
+  height: 100%; /* Match the height of the container */
+  border-radius: 8px 0 0 8px; /* Rounded edges for the start of the bar */
+  transition: width 0.3s ease; /* Smooth animation when value changes */
+  display: flex; /* Align label inside the bar */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  color: white; /* White text for visibility */
+  font-size: 0.875rem; /* Smaller font size for the label */
+  font-weight: bold; /* Make the label stand out */
+ }
+
+.progress-bar-label {
+  position: absolute; /* Position relative to the container */
+  top: 50%; /* Vertically center the text */
+  left: 50%; /* Horizontally center the text */
+  transform: translate(-50%, -50%); /* Offset to align the text center */
+  font-size: 0.875rem; /* Smaller font size for the label */
+  font-weight: bold; /* Make the label stand out */
+  color: grey; /* Default dark text */
+  pointer-events: none; /* Prevent the label from interfering with user interactions */
+}
+
+.cpu-usage-container {
+  margin-top: 16px; /* Space above the CPU usage section */
+  display: flex;
+  flex-direction: column; /* Stack progress bars vertically */
+  gap: 4px; /* Minimal space between progress bars */
+}
+
+
