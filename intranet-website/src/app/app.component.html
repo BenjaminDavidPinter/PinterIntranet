@@ -16,8 +16,8 @@
         </div>
         <div class="cpu-grid">
           <div
-            *ngFor="let usage of health?.cpu_usages_as_pct; let i = index"
-            class="cpu-item">
+              *ngFor="let usage of health?.cpu_usages_as_pct; let i = index"
+              class="cpu-item">
             <p><strong>CPU[{{ i }}]:</strong> {{ usage | number:'1.0-2' }}%</p>
           </div>
         </div>
@@ -25,6 +25,41 @@
       <mat-card-footer class="info-card-footer">
         Fetched: {{lastUpdated | date:'short'}}
       </mat-card-footer>
+    </mat-card>
+    <mat-card class="info-card">
+      <div class="info-card-title">Gaming News</div>
+      <div class="info-card-subtitle">Latest in Ben's Gaming</div>
+      <mat-card-content class="info-card-content">
+        <div *ngIf="featuredGame" class="featured-game">
+          <div class="featured-game-container">
+            <span class="featured-game-current">Current</span>
+            <img
+                [src]="featuredGame.game_art"
+                alt="Featured Game Art"
+                class="featured-game-art"
+                />
+            <span class="featured-game-platform">{{ featuredGame.platform }}</span>
+          </div>
+        </div>
+        <div class="game-list">
+          <div *ngFor="let game of pastGames" class="game-item">
+            <div class="game-item-container">
+              <div class="game-slice">
+                <img [src]="game.game_art" alt="{{ game.game_name }}" class="game-slice-art" />
+              </div>
+              <div class="game-info">
+                <span class="game-status">
+                  {{ game.completed ? '✔' : '✘' }}
+                </span>
+                <span class="game-rating">⭐ {{ game.rating }}</span>
+                <span class="game-difficulty">🔥 Difficulty {{ game.difficulty }}</span>
+                <span class="game-hours">⏳ {{ game.est_hours }} hrs</span>
+              </div>
+            </div>
+            <p class="game-box-name">{{ game.game_name }}</p>
+          </div>
+        </div>
+      </mat-card-content>
     </mat-card>
   </div>
 </main>

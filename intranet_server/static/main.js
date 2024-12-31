@@ -45262,7 +45262,7 @@ var ApiService = class _ApiService {
 // src/app/app.component.ts
 function AppComponent_div_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 13)(1, "p")(2, "strong");
+    \u0275\u0275elementStart(0, "div", 16)(1, "p")(2, "strong");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
     \u0275\u0275text(4);
@@ -45278,6 +45278,62 @@ function AppComponent_div_22_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", \u0275\u0275pipeBind2(5, 2, usage_r1, "1.0-2"), "%");
   }
 }
+function AppComponent_div_32_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 17)(1, "div", 18)(2, "span", 19);
+    \u0275\u0275text(3, "Current");
+    \u0275\u0275elementEnd();
+    \u0275\u0275element(4, "img", 20);
+    \u0275\u0275elementStart(5, "span", 21);
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext();
+    \u0275\u0275advance(4);
+    \u0275\u0275property("src", ctx_r2.featuredGame.game_art, \u0275\u0275sanitizeUrl);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(ctx_r2.featuredGame.platform);
+  }
+}
+function AppComponent_div_34_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 22)(1, "div", 23)(2, "div", 24);
+    \u0275\u0275element(3, "img", 25);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(4, "div", 26)(5, "span", 27);
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(7, "span", 28);
+    \u0275\u0275text(8);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(9, "span", 29);
+    \u0275\u0275text(10);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(11, "span", 30);
+    \u0275\u0275text(12);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(13, "p", 31);
+    \u0275\u0275text(14);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const game_r4 = ctx.$implicit;
+    \u0275\u0275advance(3);
+    \u0275\u0275propertyInterpolate("alt", game_r4.game_name);
+    \u0275\u0275property("src", game_r4.game_art, \u0275\u0275sanitizeUrl);
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate1(" ", game_r4.completed ? "\u2714" : "\u2718", " ");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("\u2B50 ", game_r4.rating, "");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("\u{1F525} Difficulty ", game_r4.difficulty, "");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("\u23F3 ", game_r4.est_hours, " hrs");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(game_r4.game_name);
+  }
+}
 var AppComponent = class _AppComponent {
   apiService;
   constructor(apiService) {
@@ -45285,16 +45341,55 @@ var AppComponent = class _AppComponent {
   }
   lastUpdated = /* @__PURE__ */ new Date();
   health = null;
+  games = [
+    {
+      current: false,
+      game_name: "Princess Peach Showtime!",
+      completed: true,
+      platform: "Nintendo Switch",
+      difficulty: 4,
+      rating: 7.9,
+      est_hours: 15,
+      game_art: "PrincessPeachShowtime.avif"
+    },
+    {
+      current: true,
+      game_name: "Super Mario Bros. U Deluxe",
+      completed: false,
+      platform: "Nintendo Switch",
+      difficulty: 5,
+      rating: 8.8,
+      est_hours: 4,
+      game_art: "SuperMarioBrosUDeluxe.avif"
+    },
+    {
+      current: false,
+      game_name: "Mario & Luigi Brothership",
+      completed: false,
+      platform: "Nintendo Switch",
+      difficulty: 7.5,
+      rating: 8.5,
+      est_hours: 40,
+      game_art: "MarioAndLuigiBrothership.avif"
+    }
+  ];
   ngOnInit() {
     this.apiService.getHealth().subscribe({
       next: (response) => this.health = response,
       error: (err) => console.error("Api call failed", err)
     });
   }
+  // Get the current (featured) game
+  get featuredGame() {
+    return this.games.find((game) => game.current);
+  }
+  get pastGames() {
+    return this.games.filter((game) => !game.current);
+  }
   static \u0275fac = function AppComponent_Factory(__ngFactoryType__) {
     return new (__ngFactoryType__ || _AppComponent)(\u0275\u0275directiveInject(ApiService));
   };
-  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 10, consts: [[1, "main"], [1, "card-container"], [1, "info-card"], [1, "info-card-title"], [1, "info-card-subtitle"], [1, "info-card-content"], [1, "stats-grid"], [1, "stat-item"], [1, "stat-label"], [1, "stat-value"], [1, "cpu-grid"], ["class", "cpu-item", 4, "ngFor", "ngForOf"], [1, "info-card-footer"], [1, "cpu-item"]], template: function AppComponent_Template(rf, ctx) {
+  static \u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 36, vars: 12, consts: [[1, "main"], [1, "card-container"], [1, "info-card"], [1, "info-card-title"], [1, "info-card-subtitle"], [1, "info-card-content"], [1, "stats-grid"], [1, "stat-item"], [1, "stat-label"], [1, "stat-value"], [1, "cpu-grid"], ["class", "cpu-item", 4, "ngFor", "ngForOf"], [1, "info-card-footer"], ["class", "featured-game", 4, "ngIf"], [1, "game-list"], ["class", "game-item", 4, "ngFor", "ngForOf"], [1, "cpu-item"], [1, "featured-game"], [1, "featured-game-container"], [1, "featured-game-current"], ["alt", "Featured Game Art", 1, "featured-game-art", 3, "src"], [1, "featured-game-platform"], [1, "game-item"], [1, "game-item-container"], [1, "game-slice"], [1, "game-slice-art", 3, "src", "alt"], [1, "game-info"], [1, "game-status"], [1, "game-rating"], [1, "game-difficulty"], [1, "game-hours"], [1, "game-box-name"]], template: function AppComponent_Template(rf, ctx) {
     if (rf & 1) {
       \u0275\u0275elementStart(0, "main", 0)(1, "div", 1)(2, "mat-card", 2)(3, "div", 3);
       \u0275\u0275text(4, "Server Health");
@@ -45323,20 +45418,35 @@ var AppComponent = class _AppComponent {
       \u0275\u0275elementStart(23, "mat-card-footer", 12);
       \u0275\u0275text(24);
       \u0275\u0275pipe(25, "date");
-      \u0275\u0275elementEnd()()()();
-      \u0275\u0275element(26, "router-outlet");
+      \u0275\u0275elementEnd()();
+      \u0275\u0275elementStart(26, "mat-card", 2)(27, "div", 3);
+      \u0275\u0275text(28, "Gaming News");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(29, "div", 4);
+      \u0275\u0275text(30, "Latest in Ben's Gaming");
+      \u0275\u0275elementEnd();
+      \u0275\u0275elementStart(31, "mat-card-content", 5);
+      \u0275\u0275template(32, AppComponent_div_32_Template, 7, 2, "div", 13);
+      \u0275\u0275elementStart(33, "div", 14);
+      \u0275\u0275template(34, AppComponent_div_34_Template, 15, 7, "div", 15);
+      \u0275\u0275elementEnd()()()()();
+      \u0275\u0275element(35, "router-outlet");
     }
     if (rf & 2) {
       \u0275\u0275advance(13);
       \u0275\u0275textInterpolate(ctx.health == null ? null : ctx.health.host_name);
       \u0275\u0275advance(5);
-      \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind2(19, 4, ctx.health == null ? null : ctx.health.used_mem_as_pct, "1.2-2"), "%");
+      \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind2(19, 6, ctx.health == null ? null : ctx.health.used_mem_as_pct, "1.2-2"), "%");
       \u0275\u0275advance(4);
       \u0275\u0275property("ngForOf", ctx.health == null ? null : ctx.health.cpu_usages_as_pct);
       \u0275\u0275advance(2);
-      \u0275\u0275textInterpolate1(" Fetched: ", \u0275\u0275pipeBind2(25, 7, ctx.lastUpdated, "short"), " ");
+      \u0275\u0275textInterpolate1(" Fetched: ", \u0275\u0275pipeBind2(25, 9, ctx.lastUpdated, "short"), " ");
+      \u0275\u0275advance(8);
+      \u0275\u0275property("ngIf", ctx.featuredGame);
+      \u0275\u0275advance(2);
+      \u0275\u0275property("ngForOf", ctx.pastGames);
     }
-  }, dependencies: [CommonModule, NgForOf, DecimalPipe, DatePipe, RouterOutlet, HttpClientModule, MatCardModule, MatCard, MatCardContent, MatCardFooter], styles: ["\n\n.card-container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: var(--light-blue);\n}\n.info-card[_ngcontent-%COMP%] {\n  background-color: var(--white);\n  border-left: 8px solid var(--pink);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 16px;\n  margin: 0 auto;\n  width: 95%;\n  max-width: 480px;\n}\n.info-card-title[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: var(--dark-blue);\n  margin-bottom: 8px;\n  border-bottom: 2px solid var(--pink);\n  padding-bottom: 8px;\n}\n.info-card-subtitle[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  font-weight: normal;\n  color: var(--gray);\n  margin-bottom: 16px;\n}\n.info-card-content[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  color: var(--dark-blue);\n  line-height: 1.5;\n}\n.info-card-content[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 8px 0;\n}\n.cpu-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n  gap: 8px;\n  margin-top: 16px;\n}\n.cpu-item[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #555;\n  text-align: center;\n  padding: 4px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.info-card-footer[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--gray);\n  text-align: right;\n  border-top: 1px solid var(--pink);\n  padding-top: 8px;\n  margin-top: 16px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n  margin-top: 16px;\n}\n.stat-item[_ngcontent-%COMP%] {\n  background-color: #ffffff;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 12px;\n  text-align: center;\n}\n.stat-label[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #888;\n  margin-bottom: 4px;\n}\n.stat-value[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: #003366;\n}\n@media (min-width: 768px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 80%;\n  }\n}\n@media (min-width: 1024px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 60%;\n    max-width: 600px;\n  }\n  .card-container[_ngcontent-%COMP%] {\n    gap: 24px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+  }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterOutlet, HttpClientModule, MatCardModule, MatCard, MatCardContent, MatCardFooter], styles: ["\n\n.card-container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: var(--light-blue);\n}\n.info-card[_ngcontent-%COMP%] {\n  background-color: var(--white);\n  border-left: 8px solid var(--pink);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 16px;\n  margin: 0 auto;\n  width: 95%;\n  max-width: 480px;\n}\n.info-card-title[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: var(--dark-blue);\n  margin-bottom: 8px;\n  border-bottom: 2px solid var(--pink);\n  padding-bottom: 8px;\n}\n.info-card-subtitle[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  font-weight: normal;\n  color: var(--gray);\n  margin-bottom: 16px;\n}\n.info-card-content[_ngcontent-%COMP%] {\n  font-size: 1rem;\n  color: var(--dark-blue);\n  line-height: 1.5;\n}\n.info-card-content[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 8px 0;\n}\n.cpu-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));\n  gap: 8px;\n  margin-top: 16px;\n}\n.cpu-item[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #555;\n  text-align: center;\n  padding: 4px;\n  background-color: #f9f9f9;\n  border-radius: 4px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.info-card-footer[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--gray);\n  text-align: right;\n  border-top: 1px solid var(--pink);\n  padding-top: 8px;\n  margin-top: 16px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n  margin-top: 16px;\n}\n.stat-item[_ngcontent-%COMP%] {\n  background-color: #ffffff;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 12px;\n  text-align: center;\n}\n.stat-label[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #888;\n  margin-bottom: 4px;\n}\n.stat-value[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: bold;\n  color: #003366;\n}\n.game-card[_ngcontent-%COMP%] {\n  background-color: #ffffff;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  padding: 16px;\n  margin: 16px auto;\n  width: 90%;\n  max-width: 400px;\n}\n.featured-game-container[_ngcontent-%COMP%] {\n  position: relative;\n  text-align: center;\n}\n.featured-game-art[_ngcontent-%COMP%] {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n  border-radius: 8px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.featured-game-platform[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 8px;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: rgba(0, 0, 0, 0.7);\n  color: #fff;\n  font-size: 1rem;\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 4px;\n  text-align: center;\n}\n.featured-game-current[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 8px;\n  left: 8px;\n  background-color: rgba(255, 0, 0, 0.8);\n  color: #fff;\n  font-size: 0.875rem;\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 4px;\n  text-transform: uppercase;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n}\n.game-list[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));\n  gap: 12px;\n  margin-top: 16px;\n}\n.game-item[_ngcontent-%COMP%] {\n  text-align: center;\n  font-size: 0.875rem;\n  position: relative;\n}\n.game-item-container[_ngcontent-%COMP%] {\n  position: relative;\n  display: inline-block;\n}\n.game-slice[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 40px;\n  overflow: hidden;\n  border-radius: 8px 8px 0 0;\n}\n.game-slice-art[_ngcontent-%COMP%] {\n  width: 100%;\n  height: auto;\n  transform: translateY(-30%);\n}\n.game-info[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  justify-content: center;\n  align-items: center;\n  padding: 8px;\n  background-color: #f9f9f9;\n  border: 1px solid #ddd;\n  border-radius: 0 0 8px 8px;\n}\n.game-status[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n  font-weight: bold;\n  color: black;\n}\n.game-status[_ngcontent-%COMP%]::before {\n  content: attr(data-status);\n  color: black;\n}\n.game-rating[_ngcontent-%COMP%], \n.game-difficulty[_ngcontent-%COMP%], \n.game-hours[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: #555;\n}\n.game-box-name[_ngcontent-%COMP%] {\n  font-weight: bold;\n  margin-top: 8px;\n  color: #003366;\n  text-align: center;\n}\n@media (min-width: 768px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 80%;\n  }\n}\n@media (min-width: 1024px) {\n  .info-card[_ngcontent-%COMP%] {\n    width: 60%;\n    max-width: 600px;\n  }\n  .card-container[_ngcontent-%COMP%] {\n    gap: 24px;\n  }\n}\n/*# sourceMappingURL=app.component.css.map */"] });
 };
 (() => {
   (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent" });

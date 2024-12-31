@@ -82,7 +82,7 @@
 /* Grid for Host Name and RAM Usage */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
   gap: 16px; /* Space between items */
   margin-top: 16px; /* Space above the grid */
 }
@@ -108,7 +108,126 @@
   color: #003366; /* Dark blue for values */
 }
 
+/* Card Container */
+.game-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 16px;
+  margin: 16px auto;
+  width: 90%;
+  max-width: 400px;
+}
 
+.featured-game-container {
+  position: relative; /* Needed for positioning the labels */
+  text-align: center;
+}
+
+.featured-game-art {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+}
+
+.featured-game-platform {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  color: #fff; /* White text */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.featured-game-current {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(255, 0, 0, 0.8); /* Bright red for emphasis */
+  color: #fff; /* White text */
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase; /* Ensure text is all caps */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+}
+
+
+
+/* Other Games Section */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Adjust column size */
+  gap: 12px; /* Slightly larger gap for spacing */
+  margin-top: 16px;
+}
+
+.game-item {
+  text-align: center;
+  font-size: 0.875rem; /* Smaller font */
+  position: relative; /* For positioning overlays */
+}
+
+.game-item-container {
+  position: relative; /* Needed for stat overlays */
+  display: inline-block;
+}
+
+.game-slice {
+  width: 100%; /* Full width of the card */
+  height: 40px; /* Slim slice height */
+  overflow: hidden; /* Ensures only a portion of the image is visible */
+  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+}
+
+.game-slice-art {
+  width: 100%; /* Full width of the card */
+  height: auto; /* Maintain aspect ratio */
+  transform: translateY(-30%); /* Adjust which part of the image is shown */
+}
+
+.game-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Space between items */
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border: 1px solid #ddd;
+  border-radius: 0 0 8px 8px; /* Rounded corners at the bottom */
+}
+
+.game-status {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black; /* Default green for completed */
+}
+
+.game-status::before {
+  content: attr(data-status);
+  color: black; /* Change to red if not completed */
+}
+
+.game-rating, .game-difficulty, .game-hours {
+  font-size: 0.875rem;
+  color: #555; /* Neutral text color */
+}
+
+.game-box-name {
+  font-weight: bold;
+  margin-top: 8px;
+  color: #003366; /* Dark blue for emphasis */
+  text-align: center;
+}
 
 @media (min-width: 768px) {
   .info-card {
